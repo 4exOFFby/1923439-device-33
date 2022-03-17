@@ -12,11 +12,7 @@ var credit_card = document.querySelector('.credit_card');
 var modal_delivery = document.querySelector('.modal_close');
 var button_modal = document.querySelector('.delivery_article_description');
 var button_modal_close = document.querySelector('.close_button');
-var slider_button_next = document.querySelector('.slider_button_next');
-var slider_button_prev = document.querySelector('.slider_button_previos');
-var slider_1 = document.querySelector('.slider_1');
-var slider_2 = document.querySelector('.slider_2');
-var slider_3 = document.querySelector('.slider_3');
+
 
 
 
@@ -68,6 +64,47 @@ button_modal_close.addEventListener('click', function() {
 });
 
 
+const slider_button_next = document.querySelector('.slider_button_next');
+const slider_button_prev = document.querySelector('.slider_button_previos');
+// находим все изображения с классом .img
+const slides_all = document.querySelectorAll('.slider_off');
+// счетчик начинается с 1 т.к. текущее изображение с i = 0 сейчас показано
+let i = 1;
 
+slider_button_next.addEventListener('click', () => {
+  // количество всех изображений
+  const imgCount = slides_all.length;
+  if (i == imgCount) {
+    i = 0;
+  }
+  // изображение, которое отображается в данный момент
+  const slides_current = document.querySelector('.slider_on');
+  // скрыть текущее изображение
+  slides_current.classList.remove('slider_on');
+  // показать следующее изображение
+  slides_all[i].classList.add('slider_on');
+  // увеличить счетчик
+
+  i++;
+
+});
+
+slider_button_prev.addEventListener('click', () => {
+  // количество всех изображений
+  const imgCount = slides_all.length;
+  if (i == imgCount) {
+    i = 0;
+  }
+  // изображение, которое отображается в данный момент
+  const slides_current = document.querySelector('.slider_on');
+  // скрыть текущее изображение
+  slides_current.classList.remove('slider_on');
+  // показать следующее изображение
+  slides_all[i].classList.add('slider_on');
+  // увеличить счетчик
+
+  i++;
+
+});
 
 
